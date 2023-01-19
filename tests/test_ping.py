@@ -1,4 +1,4 @@
-def test_pingRequest(pingRequest):
-    assert pingRequest == 200
+def test_pingRequest(mock_backend):
+    assert mock_backend.pingRequest() == 200
 
 

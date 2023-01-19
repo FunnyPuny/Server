@@ -9,6 +9,7 @@ def ping():
         print('200')
         return Response(status=200)
 
+
 @app.route('/')
 def home():
     return 'Im here'
