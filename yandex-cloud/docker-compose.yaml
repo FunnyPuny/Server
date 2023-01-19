@@ -1,0 +1,17 @@
+version: '3'
+services:
+  backend:
+    container_name: backend
+    image: {{ env.BACKEND_IMAGE }}
+    expose:
+      - 5000
+    restart: always
+  nginx:
+    container_name: nginx-backend
+    image: {{ env.NGINX_IMAGE }}
+    restart: always
+    ports:
+      - "80:80"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    depends_on:
+      - backend
