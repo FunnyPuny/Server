@@ -15,7 +15,6 @@ env:
   NGINX_IMAGE: funnypuny-nginx:${{ github.sha }}
   
   CR_REGISTRY: crp5q0eep54cgj8ppn6e
-  CR_REPOSITORY: funnypuny-cr-repo
 
 jobs:
   build-backend:
@@ -33,8 +32,8 @@ jobs:
 
     - name: Build, tag, and push image to Yandex Cloud Container Registry
       run: |
-        docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$BACKEND_IMAGE ./app
-        docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$BACKEND_IMAGE
+        docker build -t cr.yandex/$CR_REGISTRY/$BACKEND_IMAGE ./app
+        docker push cr.yandex/$CR_REGISTRY/$BACKEND_IMAGE
 
   build-nginx:
     runs-on: ubuntu-latest
@@ -51,5 +50,5 @@ jobs:
 
     - name: Build, tag, and push image to Yandex Cloud Container Registry
       run: |
-        docker build -t cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$NGINX_IMAGE ./nginx
-        docker push cr.yandex/$CR_REGISTRY/$CR_REPOSITORY:$NGINX_IMAGE
+        docker build -t cr.yandex/$CR_REGISTRY/$NGINX_IMAGE ./nginx
+        docker push cr.yandex/$CR_REGISTRY/$NGINX_IMAGE
