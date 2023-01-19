@@ -1,0 +1,21 @@
+version: '3'
+services:
+  backend:
+    container_name: backend
+    build: 
+      context: app
+    expose:
+      - 5000
+    environment:
+      - APP_ENV=${APP_ENV}
+    restart: always
+  nginx:
+    container_name: nginx-backend
+    build: 
+      context: nginx
+    restart: always
+    ports:
+      - "80:80"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    depends_on:
+      - backend

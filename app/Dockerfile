@@ -1,0 +1,13 @@
+FROM python:3.10
+
+ADD . /app
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+RUN pip3 install -r requirements.txt
+
+RUN pip install gunicorn[gevent]
+
+EXPOSE 5000
+
+CMD gunicorn --worker-class gevent --workers 2 --bind 0.0.0.0:5000 main:app --max-requests 10000 --timeout 5 --keep-alive 5 --log-level info
