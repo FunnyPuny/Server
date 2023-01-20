@@ -7,7 +7,7 @@ info:
   title: OpenAPI FunnyPuny
   version: 1.0.0
 servers:
-- url: http://api.funnypuny.space
+- url: http://api-test.funnypuny.space
 paths:
   /ping:
     get:
