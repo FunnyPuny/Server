@@ -16,5 +16,3 @@ For rebuild docker images:
 ```
 docker-compose build
 ```
-
-OLOLO
