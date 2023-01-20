@@ -73,7 +73,7 @@ jobs:
         vm-platform-id: 'standard-v1'
         vm-memory: 2 GB
         vm-disk-size: 30Gb
-        vm-core-fraction: 50
+        vm-core-fraction: 100
         vm-subnet-id: ${{ secrets.YC_SUBNET_ID }}
         docker-compose-path: './yandex-cloud/docker-compose.yaml'
         user-data-path: './yandex-cloud/user-data.yaml'
