@@ -1,16 +1,32 @@
-FROM python:3-alpine
+FROM python:3.7 AS builder
 
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-COPY requirements.txt /usr/src/app/
+RUN python3 -m venv /venv
+ENV PATH="/venv/bin:$PATH"
 
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip
 
-COPY . /usr/src/app
+COPY . .
+RUN pip install --no-cache-dir .
 
-EXPOSE 5000
 
-ENTRYPOINT ["python3"]
+FROM python:3.7 AS test_runner
+WORKDIR /tmp
+COPY --from=builder /venv /venv
+COPY --from=builder /usr/src/app/tests tests
+ENV PATH=/venv/bin:$PATH
 
-CMD ["-m", "src"]
+# install test dependencies
+RUN pip install pytest
+
+# run tests
+RUN pytest tests
+
+
+FROM python:3.7 AS service
+WORKDIR /root/app/site-packages
+COPY --from=test_runner /venv /venv
+ENV PATH=/venv/bin:$PATH
+
+CMD uvicorn web.main:app --host 0.0.0.0 --port 5000

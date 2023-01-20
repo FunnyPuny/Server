@@ -1,7 +1,7 @@
 gen:
-	rm -r app/src/openapi
-	rm -r app/src/models
-	openapi-generator generate -i docs/api/* -g python-aiohttp -o app -c docs/openapi_config.yaml --skip-overwrite
+	rm -f app/openapi.yaml
+	rm -rf app/src/web/models
+	openapi-generator generate -i docs/api/* -g python-fastapi -o app -c docs/openapi_config.yaml --skip-overwrite
 
 run-server:
 	docker-compose build

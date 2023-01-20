@@ -7,11 +7,11 @@ info:
   title: OpenAPI FunnyPuny
   version: 1.0.0
 servers:
-- url: http://api.funnypuny.space/v1
+- url: http://api.funnypuny.space
 paths:
   /ping:
     get:
-      operationId: get_ping
+      operationId: getPing
       responses:
         "200":
           content:
@@ -21,7 +21,6 @@ paths:
           description: success
       tags:
       - get_ping
-      x-openapi-router-controller: src.views.get_ping_controller
 components:
   schemas:
     GetPingResponse:

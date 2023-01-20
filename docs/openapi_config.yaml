@@ -1,5 +1,3 @@
 additionalProperties:
-  controllerPackage: views
-  defaultController: api
-  packageName: src
+  packageName: web
   serverPort: 5000
