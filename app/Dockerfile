@@ -1,13 +1,16 @@
-FROM python:3.10
+FROM python:3-alpine
 
-ADD . /app
-WORKDIR /app
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
-COPY requirements.txt requirements.txt
-RUN pip3 install -r requirements.txt
+COPY requirements.txt /usr/src/app/
 
-RUN pip install gunicorn[gevent]
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+COPY . /usr/src/app
 
 EXPOSE 5000
 
-CMD gunicorn --worker-class gevent --workers 2 --bind 0.0.0.0:5000 main:app --max-requests 10000 --timeout 5 --keep-alive 5 --log-level info
+ENTRYPOINT ["python3"]
+
+CMD ["-m", "src"]

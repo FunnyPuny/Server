@@ -1,0 +1,35 @@
+openapi: 3.0.1
+info:
+  description: "This is api for server FunnyPuny"
+  license:
+    name: Apache-2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  title: OpenAPI FunnyPuny
+  version: 1.0.0
+servers:
+- url: http://api.funnypuny.space/v1
+paths:
+  /ping:
+    get:
+      operationId: getPing
+      tags:
+        - get_ping
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPingResponse'
+components:
+  schemas:
+    GetPingResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: server status
+          enum:
+            - ok
+      required:
+        - status
