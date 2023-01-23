@@ -15,4 +15,4 @@ jobs:
         - name: Run Tests
           run: | 
             pip install pytest
-            PYTHONPATH="/app/src/" pytest tests
+            PYTHONPATH="/app/src/" pytest app/src/web/tests
