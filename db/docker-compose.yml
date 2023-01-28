@@ -1,0 +1,16 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_DB: "funnydb"
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "1234"
+      POSTGRES_SUPERUSER: "admin"
+    ports:
+      - "5432:5432"
+
+
+
+
+  
