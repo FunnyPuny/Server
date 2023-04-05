@@ -34,5 +34,5 @@ router = APIRouter()
 async def get_products(
 ) -> List[Product]:
     return [
-        Product(id='1', name='Ветчина и грибы', description="Ветчина, шампиньоны, увеличенная порция моцареллы, томатный соус ", category_id='1', price='345', image_url='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQesvEgwP7BHghHiOMfEwKsXU0xg7HBH-c6Fw&usqp=CAU')
+        Product(id='1', name='Ветчина и грибы', description="Ветчина, шампиньоны, увеличенная порция моцареллы, томатный соус ", categoryId='1', price='345', imageURL='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQesvEgwP7BHghHiOMfEwKsXU0xg7HBH-c6Fw&usqp=CAU')
     ]

@@ -34,5 +34,5 @@ router = APIRouter()
 async def get_banners(
 ) -> List[Banner]:
     return [
-        Banner(id='1', image_url='https://dodopizza.ru/SeoSnippetImages/ru-snippet.jpg')
+        Banner(id='1', imageURL='https://dodopizza.ru/SeoSnippetImages/ru-snippet.jpg')
     ]
