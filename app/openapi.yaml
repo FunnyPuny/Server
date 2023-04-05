@@ -7,7 +7,7 @@ info:
   title: OpenAPI FunnyPuny
   version: 1.0.0
 servers:
-- url: http://api.funnypuny.space
+- url: http://api-test.funnypuny.space
 paths:
   /ping:
     get:
@@ -21,6 +21,42 @@ paths:
           description: success
       tags:
       - get_ping
+  /banners:
+    get:
+      operationId: getBanners
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBannersResponse'
+          description: success
+      tags:
+      - get_banners
+  /products:
+    get:
+      operationId: getProducts
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetProductsResponse'
+          description: success
+      tags:
+      - get_products
+  /categories:
+    get:
+      operationId: getCategories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCategoriesResponse'
+          description: success
+      tags:
+      - get_categories
 components:
   schemas:
     GetPingResponse:
@@ -37,3 +73,80 @@ components:
       - status
       title: GetPingResponse
       type: object
+    Banner:
+      example:
+        imageURL: https://dodopizza.ru/SeoSnippetImages/ru-snippet.jpg
+        id: "1"
+      properties:
+        id:
+          example: "1"
+          title: id
+          type: string
+        imageURL:
+          example: https://dodopizza.ru/SeoSnippetImages/ru-snippet.jpg
+          title: imageURL
+          type: string
+      title: Banner
+      type: object
+    GetBannersResponse:
+      items:
+        $ref: '#/components/schemas/Banner'
+      type: array
+    Product:
+      example:
+        price: "499.99"
+        imageURL: http://ololol.com/olol.png
+        name: Гавайская пицца
+        description: Чтобы порадовать себя и друзей из Италии вкусным ананасом
+        id: "1"
+        categoryId: "1"
+      properties:
+        id:
+          example: "1"
+          title: id
+          type: string
+        name:
+          example: Гавайская пицца
+          title: name
+          type: string
+        description:
+          example: Чтобы порадовать себя и друзей из Италии вкусным ананасом
+          title: description
+          type: string
+        categoryId:
+          example: "1"
+          title: categoryId
+          type: string
+        price:
+          example: "499.99"
+          title: price
+          type: string
+        imageURL:
+          example: http://ololol.com/olol.png
+          title: imageURL
+          type: string
+      title: Product
+      type: object
+    GetProductsResponse:
+      items:
+        $ref: '#/components/schemas/Product'
+      type: array
+    Category:
+      example:
+        name: Пицца
+        id: "1"
+      properties:
+        id:
+          example: "1"
+          title: id
+          type: string
+        name:
+          example: Пицца
+          title: name
+          type: string
+      title: Category
+      type: object
+    GetCategoriesResponse:
+      items:
+        $ref: '#/components/schemas/Category'
+      type: array

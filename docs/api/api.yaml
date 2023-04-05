@@ -21,6 +21,46 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetPingResponse'
+  /banners:
+    get:
+      operationId: getBanners
+      tags:
+        - get_banners
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBannersResponse'
+
+  /products:
+    get:
+      operationId: getProducts
+      tags:
+        - get_products
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetProductsResponse'
+
+  /categories:
+    get:
+      operationId: getCategories
+      tags:
+        - get_categories
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetCategoriesResponse'
+
+
 components:
   schemas:
     GetPingResponse:
@@ -33,3 +73,60 @@ components:
             - ok
       required:
         - status
+
+    Banner:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "1"
+        imageURL:
+          type: string
+          example: "https://dodopizza.ru/SeoSnippetImages/ru-snippet.jpg"
+
+    GetBannersResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/Banner'
+
+    Product:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "1"
+        name:
+          type: string
+          example: "Гавайская пицца"
+        description:
+          type: string
+          example: "Чтобы порадовать себя и друзей из Италии вкусным ананасом"
+        categoryId:
+          type: string
+          example: 1
+        price:
+          type: string
+          example: "499.99"
+        imageURL:
+          type: string
+          example: "http://ololol.com/olol.png"
+
+    GetProductsResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/Product'
+
+    Category:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "1"
+        name:
+          type: string
+          example: "Пицца"
+
+    GetCategoriesResponse:
+      type: array
+      items:
+        $ref: '#/components/schemas/Category'

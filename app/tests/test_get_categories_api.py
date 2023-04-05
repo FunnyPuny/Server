@@ -3,11 +3,11 @@
 from fastapi.testclient import TestClient
 
 
-from web.models.get_ping_response import GetPingResponse  # noqa: F401
+from web.models.category import Category  # noqa: F401
 
 
-def test_get_ping(client: TestClient):
-    """Test case for get_ping
+def test_get_categories(client: TestClient):
+    """Test case for get_categories
 
     
     """
@@ -16,7 +16,7 @@ def test_get_ping(client: TestClient):
     }
     response = client.request(
         "GET",
-        "/ping",
+        "/categories",
         headers=headers,
     )
 
