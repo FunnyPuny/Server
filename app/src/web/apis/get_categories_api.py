@@ -34,5 +34,8 @@ router = APIRouter()
 async def get_categories(
 ) -> List[Category]:
     return [
-        Category(id='1', name='Пицца')
+        Category(id='1', name='Пицца'),
+        Category(id='2', name='Комбо'),
+        Category(id='3', name='Десерты'),
+        Category(id='4', name='Напитки')
     ]
