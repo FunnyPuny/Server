@@ -37,6 +37,6 @@ async def get_banners(
         Banner(id='1', imageURL='https://dodopizza.ru/SeoSnippetImages/ru-snippet.jpg'),
         Banner(id='2', imageURL='https://cdn.dodostatic.net/static/Img/BonusActionBanners/Gallery/g_1678721107_b96b4d3189a44bf4966de96b848e75fa.jpeg'),
         Banner(id='3', imageURL='https://cdn.dodostatic.net/static/Img/BonusActionBanners/Gallery/g_1642653583_ee54149010ab4dcf8f55e2bdd98f8d5d.jpeg'),
-        Banner(id='4', imageURL='https://cdn.dodostatic.net/static/Img/BonusActionBanners/Gallery/g_1678730080_3ddc392e7b3d44a18ee262f7dfc774ec.jpeg')
+        Banner(id='4', imageURL='https://cdn.dodostatic.net/static/Img/BonusActionBanners/Gallery/g_1678730080_3ddc392e7b3d44a18ee262f7dfc774ec.jpeg'),
         Banner(id='5', imageURL='https://cdn.dodostatic.net/static/Img/BonusActionBanners/Gallery/g_1622432276_59229e58ab644a78b0eb593b7cb937c0.jpeg')
     ]
